@@ -9,8 +9,6 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./certbot/conf:/etc/letsencrypt 
       - ./certbot/www:/var/www/certbot
-      - static_volume:/app/staticfiles
-      - media_volume:/app/media
       - /home/usuario/apk:/var/www/apk
       
   certbot:
