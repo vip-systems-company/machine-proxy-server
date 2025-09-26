@@ -11,12 +11,12 @@ services:
       - ./certbot/www:/var/www/certbot
       - /root/apk:/var/www/apk
       
-  # certbot:
-  #   image: certbot/certbot
-  #   container_name: certbot_new
-  #   volumes:
-  #     - ./certbot/conf:/etc/letsencrypt
-  #     - ./certbot/www:/var/www/certbot
-  #   command: certonly --webroot -w /var/www/certbot --force-renewal --email ti@vip-systems.com.br -d promotor.vip-systems.com.br --agree-tos
-  #   depends_on:
-  #     - nginx
+  certbot:
+    image: certbot/certbot
+    container_name: certbot_new
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: certonly --webroot -w /var/www/certbot --force-renewal --email ti@vip-systems.com.br -d promotor.vip-systems.com.br -d dashboard.vip-systems.com.br --agree-tos
+    depends_on:
+      - nginx
